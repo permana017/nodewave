@@ -1,15 +1,16 @@
+import { User } from "@/app/interfaces";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 interface UserState {
-  user: any;
-  setUser: (user: any) => void;
+  user: User | null;
+  setUser: (user: User) => void;
   clearUser: () => void;
 }
 
 interface UserState {
-  user: any;
-  setUser: (user: any) => void;
+  user: User | null;
+  setUser: (user: User) => void;
   clearUser: () => void;
 }
 

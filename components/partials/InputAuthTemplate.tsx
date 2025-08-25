@@ -9,7 +9,9 @@ export interface PropsInputTemplate {
   label?: string;
   placeholder?: string;
   type?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   error?: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value?: any;
 }
 

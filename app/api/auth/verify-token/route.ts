@@ -24,6 +24,7 @@ export async function GET(req: NextRequest) {
       }
     );
     return NextResponse.json({ success: true, ...data });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     const data = err.response?.data || { message: "Internal error" };
     return NextResponse.json(

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import {
   Select,
@@ -9,7 +10,7 @@ import {
 
 type Options = {
   label: string;
-  value: any;
+  value: string;
 };
 
 export interface PropsInputTemplate {
