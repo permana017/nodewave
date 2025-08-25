@@ -9,7 +9,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { axiosClient } from "@/app/lib/axios";
-import { toast } from "sonner";
 import { ResponseLogin } from "@/app/interfaces";
 import { showToast } from "@/app/lib/toast";
 import { useUserStore } from "@/lib/store";
@@ -28,8 +27,8 @@ function Login() {
   const formRegister = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
-      email: "test@nodewave.id",
-      password: "testuser#123",
+      email: "",
+      password: "",
     },
   });
 
@@ -46,6 +45,7 @@ function Login() {
       showToast.success(res.message);
       useUserStore.getInitialState().setUser(res.content.user);
       router.push("/todo");
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
       showToast.error(e?.response?.data?.message || "Failed Login.");
     } finally {
@@ -101,7 +101,7 @@ function Login() {
         </Card>
         <Link href={"/register"}>
           <p className="cursor-pointer text-sm text-blue-600 font-medium text-center">
-            Don't have an account? Register
+            Don&apos;t have an account? Register
           </p>
         </Link>
       </form>

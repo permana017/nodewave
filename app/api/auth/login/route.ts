@@ -1,4 +1,3 @@
-
 import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
 
@@ -22,9 +21,12 @@ export async function POST(req: NextRequest) {
       return response;
     }
     return NextResponse.json({ success: false, ...data }, { status: 400 });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     const data = err.response?.data || { message: "Internal error" };
-    return NextResponse.json({ success: false, ...data }, { status: err.response?.status || 500 });
+    return NextResponse.json(
+      { success: false, ...data },
+      { status: err.response?.status || 500 }
+    );
   }
-
 }

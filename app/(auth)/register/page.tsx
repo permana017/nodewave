@@ -11,6 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { axiosClient } from "@/app/lib/axios";
 import { showToast } from "@/app/lib/toast";
+import { ResponseLogin } from "@/app/interfaces";
 
 function Register() {
   const router = useRouter();
@@ -69,7 +70,10 @@ function Register() {
         password: values.password,
       };
 
-      const res:any = await axiosClient.post("auth/register", payload);
+      const res: ResponseLogin = await axiosClient.post(
+        "auth/register",
+        payload
+      );
 
       if (res.success) {
         router.push("/login");
@@ -77,8 +81,9 @@ function Register() {
       } else {
         showToast.error(res.message || "Register failed");
       }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
-      showToast.error(e.response?.data?.errors || "Network error");
+      showToast.error(e?.response?.data?.errors || "Network error");
     } finally {
       setLoading(false);
     }

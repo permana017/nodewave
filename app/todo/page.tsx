@@ -33,7 +33,7 @@ const deleteTodosApi = async (ids: string[]) => {
 
 export default function TodoPage() {
   const [newTodo, setNewTodo] = useState("");
-  const [selectedId, setSelectedId] = useState<any>("");
+  const [selectedId, setSelectedId] = useState<string | undefined>("");
 
   const queryClient = useQueryClient();
 

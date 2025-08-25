@@ -3,11 +3,11 @@ import { CheckCircle2, XCircle, Info, AlertTriangle } from "lucide-react";
 
 export const showToast = {
   success: (message: string) =>
-    toast.custom((t: any) => (
+    toast.custom((t: string | number) => (
       <div
         className={`flex items-center gap-3 rounded-xl border bg-green-50 p-4 shadow-lg transition-all
         ${
-          t.visible
+          t
             ? "animate-in fade-in slide-in-from-top-5"
             : "animate-out fade-out slide-out-to-top-5"
         }`}
@@ -18,11 +18,11 @@ export const showToast = {
     )),
 
   error: (message: string) =>
-    toast.custom((t: any) => (
+    toast.custom((t: string | number) => (
       <div
         className={`flex items-center gap-3 rounded-xl border bg-red-50 p-4 shadow-lg transition-all
         ${
-          t.visible
+          t
             ? "animate-in fade-in slide-in-from-top-5"
             : "animate-out fade-out slide-out-to-top-5"
         }`}
@@ -33,11 +33,11 @@ export const showToast = {
     )),
 
   info: (message: string) =>
-    toast.custom((t: any) => (
+    toast.custom((t: string | number) => (
       <div
         className={`flex items-center gap-3 rounded-xl border bg-blue-50 p-4 shadow-lg transition-all
         ${
-          t.visible
+          t
             ? "animate-in fade-in slide-in-from-top-5"
             : "animate-out fade-out slide-out-to-top-5"
         }`}
@@ -48,11 +48,11 @@ export const showToast = {
     )),
 
   warning: (message: string) =>
-    toast.custom((t: any) => (
+    toast.custom((t: string | number) => (
       <div
         className={`flex items-center gap-3 rounded-xl border bg-yellow-50 p-4 shadow-lg transition-all
         ${
-          t.visible
+          t
             ? "animate-in fade-in slide-in-from-top-5"
             : "animate-out fade-out slide-out-to-top-5"
         }`}

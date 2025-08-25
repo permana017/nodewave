@@ -2,7 +2,7 @@ export interface ResponseLogin {
     success: boolean;
     content: Content;
     message: string;
-    errors:  any[];
+    errors:  unknown[];
 }
 
 export interface Content {
@@ -21,7 +21,7 @@ export interface User {
 export interface ResponTodos {
     content: Content;
     message: string;
-    errors:  any[];
+    errors:  unknown[];
 }
 
 export interface Content {
