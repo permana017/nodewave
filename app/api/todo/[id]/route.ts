@@ -9,8 +9,6 @@ type Params = {
 
 export async function PUT(req: NextRequest, { params }: Params) {
   const token = req.cookies.get("token")?.value;
-  console.log("id", params?.id);
-
   if (!token) {
     return NextResponse.json(
       { success: false, message: "No token found" },
