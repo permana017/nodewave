@@ -55,6 +55,10 @@ export async function DELETE(req: NextRequest, { params }: Params) {
   }
 }
 
+export async function HEAD() {
+  return new Response(null, { status: 200 });
+}
+
 export async function OPTIONS() {
   return new Response(null, {
     status: 204,
