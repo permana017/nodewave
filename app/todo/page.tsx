@@ -22,13 +22,20 @@ const addTodoApi = async (item: string) => {
 };
 
 const toggleTodoApi = async (todo: Todo) => {
-  await axiosClient.put(`/todo/${todo.id}`, {
+  await axiosClient.put(`/todo`, {
     action: todo.isDone ? "UNDONE" : "DONE",
+    id: todo.id,
   });
 };
 
 const deleteTodosApi = async (ids: string[]) => {
-  await Promise.all(ids.map((id) => axiosClient.delete(`/todo/${id}`)));
+  await Promise.all(
+    ids.map((id) =>
+      axiosClient.delete(`/todo`, {
+        data: { id },
+      })
+    )
+  );
 };
 
 export default function TodoPage() {
