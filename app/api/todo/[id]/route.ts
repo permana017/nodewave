@@ -7,6 +7,8 @@ type Params = {
   params: { id: string };
 };
 
+console.log("BE_URL", BE_URL);
+
 export async function PUT(req: NextRequest, { params }: Params) {
   const token = req.cookies.get("token")?.value;
   if (!token) {
