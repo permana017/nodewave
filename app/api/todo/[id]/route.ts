@@ -34,7 +34,8 @@ export async function PUT(req: NextRequest, { params }: Params) {
   }
 }
 
-export async function DELETE(req: NextRequest, { params }: Params) {
+export async function DELETE(req: NextRequest, { 
+  params }: Params) {
   const id = params.id;
   const token = req.cookies.get("token")?.value;
   if (!token) {
